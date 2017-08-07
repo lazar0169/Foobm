@@ -55,7 +55,7 @@ function initTables() {
     for (var i = 0; i < links.length; i++) {
         var additionalHTML = `
             <div class="section">
-                <input class="section-tops" value="${links[i].name}">
+                <input class="section-tops" value="${links[i].name}" onkeyup="read()">
                 <div class="section-tops" onclick="row.add(this.parentElement, 'test', 'http://')">+</div>
                 <div class="section-tops" onclick="section.remove(this.parentElement)">-</div>
                 <ul class="sortable connectedSortable">

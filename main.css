@@ -8,9 +8,11 @@ body {
 }
 
 input.section-tops {
-    border: none;
+    /* border: none; */
     padding: 10px;
     margin-bottom: 7px;
+    width: 460px;
+    border: 1px solid black;
 }
 
 .section .section-tops:nth-child(2), .section .section-tops:nth-child(3) {
@@ -50,6 +52,7 @@ input.section-tops {
 .row-link {
     color: grey;
     font-size: 12px;
+    width: 245px;
     /* padding: 0 0 0 10px; */
 }
 

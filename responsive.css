@@ -9,20 +9,48 @@
 }
 
 @media only screen and (max-width: 1200px) {
+    input.section-tops {
+        width: 37vw;
+    }
     .section {
         width: 45.6%;
     }
 }
 
+@media only screen and (max-width: 1133px) {
+    .row-link {
+        width: 175px;
+    }
+}
+
 @media only screen and (max-width: 992px) {
+    .row-link {
+        width: 52vw;
+    }
     .section {
         width: 90%;
         display: block;
     }
+    input.section-tops {
+        width: 80vw;
+    }
 }
 
 @media only screen and (max-width: 768px) {
+    input.section-tops {
+        max-width: 60vw;
+    }
     .section {
         width: 80%;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .row {
+        max-width: 83%;
+    }
+
+    input.section-tops {
+        max-width: 53vw;
     }
 }
