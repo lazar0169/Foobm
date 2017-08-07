@@ -16,13 +16,13 @@
 
 @media only screen and (max-width: 992px) {
     .section {
-        width: 44.3%;
+        width: 90%;
+        display: block;
     }
 }
 
 @media only screen and (max-width: 768px) {
     .section {
         width: 80%;
-        display: block;
     }
 }
