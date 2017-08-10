@@ -3,19 +3,44 @@ body {
     margin: auto;
 }
 
+#sections {
+    width: 100%;
+    height: 100%;
+    column-count: 2;
+    margin-top: 20px;
+}
+
+#addButton {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border: 1px solid;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+#addButton:hover {
+    background: green;
+    color: white;
+    cursor: pointer;
+}
+
 .section-tops {
     display: inline-block;
 }
 
 input.section-tops {
-    /* border: none; */
+    border: none;
     padding: 10px;
     margin-bottom: 7px;
     width: 460px;
-    border: 1px solid black;
 }
 
-.section .section-tops:nth-child(2), .section .section-tops:nth-child(3) {
+.section .section-tops:nth-child(2),
+.section .section-tops:nth-child(3) {
     background: green;
     color: white;
     font-size: 10px;

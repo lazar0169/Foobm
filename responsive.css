@@ -2,55 +2,86 @@
     padding: 20px;
     transition: all 0.3s;
     border: 1px solid;
-    width: 46.3%;
-    margin: auto;
-    display: inline-table;
-    margin-bottom: 4.9px;
+    width: 94%;
+    display: inline-block;
+    float: right;
+    margin-bottom: 8px;
+    break-inside: avoid;
 }
 
-@media only screen and (max-width: 1200px) {
+.section.comp {
+    display: inline-table;
+    float: none;
+}
+
+@media all and (max-width: 1200px) {
     input.section-tops {
         width: 37vw;
     }
-    .section {
+    /* .section {
         width: 45.6%;
-    }
+    } */
 }
 
-@media only screen and (max-width: 1133px) {
+@media all and (max-width: 1133px) {
+    input.section-tops {
+        width: 35vw;
+    }
     .row-link {
         width: 175px;
     }
+    #sections {
+        width: 95%;
+        display: block;
+        margin: auto;
+        float: none;
+    }
+    .section {
+        width: 92%;
+    }
 }
 
-@media only screen and (max-width: 992px) {
+@media all and (max-width: 992px) {
     .row-link {
         width: 52vw;
     }
-    .section {
+    #sections {
+        column-count: 1;
+    }
+    .section,
+    .section.comp {
         width: 90%;
         display: block;
+        float: none;
+        margin: auto;
+        margin-bottom: 8px;
     }
     input.section-tops {
-        width: 80vw;
+        width: 75vw;
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media all and (max-width: 768px) {
     input.section-tops {
         max-width: 60vw;
     }
     .section {
         width: 80%;
     }
+    .row input {
+        max-width: 45%;
+    }
 }
 
-@media only screen and (max-width: 430px) {
+@media all and (max-width: 430px) {
     .row {
         max-width: 83%;
     }
-
     input.section-tops {
         max-width: 53vw;
+    }
+    .section,
+    .section.comp {
+        width: 85%;
     }
 }

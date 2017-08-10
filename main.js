@@ -15,6 +15,12 @@ var links = [
     }
 ];
 
+var compatibility = '';
+
+if (navigator.userAgent.indexOf('Edge') > -1 || navigator.userAgent.indexOf('Firefox') > -1) {
+    compatibility = 'comp';
+}
+
 function read() {
     links = [];
     var sections = document.querySelectorAll('.section');
@@ -43,8 +49,8 @@ function initTables() {
                                     <a href="${object[Object.keys(object)[i]]}"></a>
                                 </span> 
                                 <span class="row">
-                                    <input class="row-title" value="${Object.keys(object)[i]}" onkeyup="read()">  
-                                    <input class="row-link" value="${object[Object.keys(object)[i]]}" onkeyup="row.changeUrl(this)"> 
+                                    <input class="row-title" value="${Object.keys(object)[i]}" onblur="read()">  
+                                    <input class="row-link" value="${object[Object.keys(object)[i]]}" onblur="row.changeUrl(this)"> 
                                 </span> 
                                 <span class="delete-row" onclick="row.remove(this.parentElement)">-</span> 
                             </li>`;
@@ -54,8 +60,8 @@ function initTables() {
 
     for (var i = 0; i < links.length; i++) {
         var additionalHTML = `
-            <div class="section">
-                <input class="section-tops" value="${links[i].name}" onkeyup="read()">
+            <div class="section ${compatibility}">
+                <input class="section-tops" value="${links[i].name}" onblur="read()">
                 <div class="section-tops" onclick="row.add(this.parentElement, 'test', 'http://')">+</div>
                 <div class="section-tops" onclick="section.remove(this.parentElement)">-</div>
                 <ul class="sortable connectedSortable">
@@ -63,7 +69,7 @@ function initTables() {
                 </ul>
             </div>
         `;
-        document.body.innerHTML += additionalHTML;
+        document.getElementById('sections').innerHTML += additionalHTML;
     }
 }
 
@@ -88,7 +94,7 @@ var row = function () {
                         </span> 
                         <span class="row">
                             <input class="row-title" value="${name}">  
-                            <input class="row-link" value="${url}" onkeyup="row.changeUrl(this)"> 
+                            <input class="row-link" value="${url}" onblur="row.changeUrl(this)"> 
                         </span> 
                         <span class="delete-row" onclick="row.remove(this.parentElement)">-</span> 
                     </li>`;
@@ -119,8 +125,8 @@ var row = function () {
 
 var section = function () {
     function add() {
-        document.body.innerHTML += `
-            <div class="section">
+        document.getElementById('sections').innerHTML += `
+            <div class="section ${compatibility}">
                 <input class="section-tops" value="New Section">
                 <div class="section-tops" onclick="row.add(this.parentElement, 'test', 'http://')">+</div>
                 <div class="section-tops" onclick="section.remove(this.parentElement)">-</div>
