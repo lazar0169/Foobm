@@ -1,11 +1,12 @@
 .section {
     padding: 20px;
     transition: all 0.3s;
-    border: 1px solid;
+    border: 1px solid rgba(39, 39, 39, 0.25);
     width: 94%;
     display: inline-block;
     float: right;
     margin-bottom: 8px;
+    border-radius: 5px;
     break-inside: avoid;
 }
 
@@ -75,7 +76,7 @@
 
 @media all and (max-width: 430px) {
     .row {
-        max-width: 83%;
+        max-width: 70%;
     }
     input.section-tops {
         max-width: 53vw;
