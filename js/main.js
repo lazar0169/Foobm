@@ -82,7 +82,6 @@ function initDrag() {
         connectWith: '.connectedSortable',
         placeholder: 'ui-state-highlight',
         cursor: 'move',
-        delay: 150,
         opacity: 0.5,
         update: function (e) {
             read();
