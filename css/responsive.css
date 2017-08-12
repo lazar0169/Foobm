@@ -1,35 +1,29 @@
 .section {
     padding: 20px;
     transition: all 0.3s;
-    border: 1px solid rgba(39, 39, 39, 0.25);
-    width: 94%;
-    display: inline-block;
-    float: right;
+    border: 1px solid rgba(39, 39, 39, 0.4);
+    width: auto;
+    margin: auto;
+    display: block;
     margin-bottom: 8px;
     border-radius: 5px;
     break-inside: avoid;
+    background: rgba(255, 255, 255, 0.07);
 }
 
 .section.comp {
     display: inline-table;
-    float: none;
 }
 
 @media all and (max-width: 1200px) {
     input.section-tops {
         width: 37vw;
     }
-    /* .section {
-        width: 45.6%;
-    } */
 }
 
 @media all and (max-width: 1133px) {
     input.section-tops {
-        width: 35vw;
-    }
-    .row-link {
-        width: 175px;
+        width: 34vw;
     }
     #sections {
         width: 95%;
@@ -43,9 +37,6 @@
 }
 
 @media all and (max-width: 992px) {
-    .row-link {
-        width: 52vw;
-    }
     #sections {
         column-count: 1;
     }
@@ -58,31 +49,89 @@
         margin-bottom: 8px;
     }
     input.section-tops {
-        width: 75vw;
+        width: 85%;
+    }
+    /* MOBILE */
+    #addButton:active {
+        background: rgba(0, 128, 0, 0.32);
+        color: rgba(0, 0, 0, 0.75);
+        cursor: pointer;
+        transition: 0.3s all;
+    }
+    .section .section-tops:nth-child(3):active,
+    .section .section-tops:nth-child(2):active {
+        background: rgba(0, 128, 0, 0.32);
+        color: rgba(0, 0, 0, 0.75);
+        cursor: pointer;
+        transition: 0.3s all;
+    }
+    .section .section-tops:nth-child(3):active {
+        background: rgba(128, 0, 0, 0.32);
+    }
+    .sortable li:active {
+        background: rgba(0, 0, 0, 0.1);
+    }
+    .delete-row:active {
+        color: white;
+        border: 1px solid rgba(139, 0, 0, 0.65);
+        background: rgba(139, 0, 0, 0.65);
+    }
+    .edit-row:active {
+        color: white;
+        border: 1px solid rgba(0, 3, 111, 0.65);
+        background: rgba(0, 3, 111, 0.65);
+    }
+    .edit-row.done:active {
+        border: 1px solid rgba(0, 111, 3, 0.65);
+        background: rgba(0, 111, 3, 0.65);
     }
 }
 
 @media all and (max-width: 768px) {
     input.section-tops {
-        max-width: 60vw;
+        max-width: 75%;
     }
     .section {
         width: 80%;
     }
-    .row input {
-        max-width: 45%;
-    }
 }
 
 @media all and (max-width: 430px) {
-    .row {
-        max-width: 70%;
-    }
     input.section-tops {
-        max-width: 53vw;
+        max-width: 50vw;
     }
     .section,
     .section.comp {
         width: 85%;
+    }
+}
+
+
+/* DESKTOP  */
+
+@media (hover: hover) {
+    .edit-row:hover {
+        color: white;
+        border: 1px solid rgba(0, 3, 111, 0.65);
+        background: rgba(0, 3, 111, 0.65);
+    }
+    .edit-row.done:hover,
+    .section .section-tops:nth-child(3):hover,
+    .section .section-tops:nth-child(2):hover,
+    #addButton:hover {
+        border: 1px solid rgba(0, 111, 3, 0.65);
+        background: rgba(0, 111, 3, 0.65);
+        cursor: pointer;
+        color: white;
+        transition: 0.3s all;
+    }
+    .delete-row:hover,
+    .section .section-tops:nth-child(3):hover {
+        color: white;
+        border: 1px solid rgba(139, 0, 0, 0.65);
+        background: rgba(139, 0, 0, 0.65);
+    }
+    .sortable li:hover {
+        background: rgba(0, 0, 0, 0.1);
     }
 }
