@@ -41,8 +41,8 @@ function rowTemplate(title, url) {
                 </span> 
                 <span class="row" data-row="||false">
                     <a href="${url}" target="_blank"></a>
-                    <input type="text" class="row-title" value="${title}" onblur="read()" disabled>  
-                    <input type="text" class="row-link" value="${url}" onblur="row.changeUrl(this.parentElement)" disabled> 
+                    <input type="text" class="row-title" value="${title}" onblur="read()" readonly="readonly">  
+                    <input type="text" class="row-link" value="${url}" onblur="row.changeUrl(this.parentElement)" readonly="readonly"> 
                 </span> 
                 <span class="edit-row" onclick="row.edit(this.parentElement)" title="Change bookmark"><i class="mdi mdi-link-variant" aria-hidden="true"></i></span> 
                 <span class="delete-row" onclick="row.remove(this.parentElement)" title="Remove bookmark"><i class="mdi mdi-minus" aria-hidden="true"></i></span> 
@@ -146,8 +146,8 @@ var row = function () {
                 removeBtn.title = 'Discard changes';
                 nameField.style.background = 'rgba(0, 84, 6, 0.19)';
                 urlField.style.background = 'rgba(0, 84, 6, 0.19)';
-                nameField.disabled = false;
-                urlField.disabled = false;
+                nameField.readOnly = false;
+                urlField.readOnly = false;
             } else {
                 row.dataset.row = '||false';
                 link.style.pointerEvents = 'all';
@@ -159,8 +159,8 @@ var row = function () {
                 urlField.style.background = 'none';
                 nameField.blur();
                 urlField.blur();
-                nameField.disabled = true;
-                urlField.disabled = true;
+                nameField.readOnly = readonly;
+                urlField.readOnly = readonly;
             }
         }
 
