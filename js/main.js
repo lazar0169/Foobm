@@ -90,6 +90,8 @@ function initDrag() {
     }).disableSelection();
 }
 
+//  MODULES
+
 var row = function () {
     function add(section, name, url) {
         rowHTML = rowTemplate(name, parseUrl(url));

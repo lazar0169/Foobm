@@ -134,6 +134,10 @@ input.section-tops {
     border-radius: 4px;
     transition: 0.3s all;
     text-shadow: 0.04em 0.04em 0 rgba(0, 0, 0, 0.15);
+    user-select: text;
+    -ms-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
 }
 
 .row-link {
@@ -149,6 +153,10 @@ input.section-tops {
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     transition: 0.3s all;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .sortable li {
