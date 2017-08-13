@@ -45,8 +45,8 @@ function rowTemplate(title, url) {
                 </span> 
                 <span class="row" data-row="||false">
                     <a href="${url}" target="_blank"></a>
-                    <textarea type="text" class="row-title" readonly="readonly" cols="10" rows="1" style="${iosStyle}">${title}</textarea>  
-                    <textarea type="text" class="row-link" readonly="readonly" cols="10" rows="1" style="${iosStyle}">${url}</textarea> 
+                    <input type="text" class="row-title" readonly="readonly" value="${title}" style="${iosStyle}"> 
+                    <input type="text" class="row-link" readonly="readonly" value="${url}" style="${iosStyle}"> 
                 </span> 
                 <span class="edit-row" onclick="row.edit(this.parentElement)" title="Change bookmark"><i class="mdi mdi-link-variant" aria-hidden="true"></i></span> 
                 <span class="delete-row" onclick="row.remove(this.parentElement)" title="Remove bookmark"><i class="mdi mdi-minus" aria-hidden="true"></i></span> 
@@ -56,7 +56,7 @@ function rowTemplate(title, url) {
 function sectionTemplate(name, bookmarks) {
     return `
             <div class="section ${compatibility}">
-                <textarea type="text" class="section-tops" cols="10" rows="1" style="${iosStyle}">${name}</textarea>
+                <input type="text" class="section-tops" value="${name}" style="${iosStyle}">
                 <div class="section-tops" onclick="row.add(this.parentElement, 'blank', 'http://')" title="Add new bookmark"><i class="mdi mdi-plus" aria-hidden="true"></i></div>
                 <div class="section-tops" onclick="section.remove(this.parentElement)" title="Remove section"><i class="mdi mdi-close" aria-hidden="true"></i></div>
                 <ul class="sortable connectedSortable">

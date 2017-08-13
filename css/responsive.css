@@ -21,13 +21,13 @@
 }
 
 @media all and (max-width: 1200px) {
-    textarea.section-tops {
+    input.section-tops {
         width: 37vw;
     }
 }
 
 @media all and (max-width: 1133px) {
-    textarea.section-tops {
+    input.section-tops {
         width: 34vw;
     }
     #sections {
@@ -80,7 +80,7 @@
         margin: auto;
         margin-bottom: 8px;
     }
-    textarea.section-tops {
+    input.section-tops {
         width: 85%;
     }
     /* MOBILE */
@@ -120,7 +120,7 @@
 }
 
 @media all and (max-width: 768px) {
-    textarea.section-tops {
+    input.section-tops {
         max-width: 75%;
     }
     .section {
@@ -129,7 +129,7 @@
 }
 
 @media all and (max-width: 430px) {
-    textarea.section-tops {
+    input.section-tops {
         max-width: 50vw;
     }
     .section,

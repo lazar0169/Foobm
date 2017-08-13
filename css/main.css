@@ -6,12 +6,12 @@
 }
 
 body,
-textarea {
+input {
     font-family: 'roboto', sans-serif !important;
 }
 
-textarea {
-    resize: none;
+input {
+    overflow-x: scroll;
     white-space: nowrap;
 }
 
@@ -84,7 +84,7 @@ h2 {
     display: inline-block;
 }
 
-textarea.section-tops {
+input.section-tops {
     border: none;
     padding: 10px;
     margin-bottom: 7px;
@@ -92,6 +92,7 @@ textarea.section-tops {
     background: none;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0.04em 0.04em 0 rgba(255, 255, 255, 0.2);
+    height: 20px;
 }
 
 .section .section-tops:nth-child(2),
@@ -127,10 +128,11 @@ textarea.section-tops {
     position: relative;
 }
 
-.row textarea {
+.row input {
     border: none;
     padding: 5px;
     width: 50%;
+    height: 20px;
     background: none;
     color: rgba(255, 255, 255, 0.9);
     margin-right: 2px;
