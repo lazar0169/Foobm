@@ -1,14 +1,15 @@
 .section {
     padding: 20px;
     transition: all 0.3s;
-    border: 1px solid rgba(39, 39, 39, 0.4);
+    border: 1px solid rgb(0, 0, 0);
     width: auto;
     margin: auto;
     display: block;
     margin-bottom: 8px;
     border-radius: 5px;
     break-inside: avoid;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.42);
     user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
@@ -20,13 +21,13 @@
 }
 
 @media all and (max-width: 1200px) {
-    input.section-tops {
+    textarea.section-tops {
         width: 37vw;
     }
 }
 
 @media all and (max-width: 1133px) {
-    input.section-tops {
+    textarea.section-tops {
         width: 34vw;
     }
     #sections {
@@ -43,15 +44,15 @@
 @media all and (min-width: 1024px) {
     .edit-row:hover {
         color: white;
-        border: 1px solid rgba(0, 3, 111, 0.65);
-        background: rgba(0, 3, 111, 0.65);
+        border: 1px solid rgba(0, 201, 255, 0.7);
+        background: rgba(45, 97, 204, 0.7);
     }
     .edit-row.done:hover,
     .section .section-tops:nth-child(3):hover,
     .section .section-tops:nth-child(2):hover,
     #addButton:hover {
-        border: 1px solid rgba(0, 111, 3, 0.65);
-        background: rgba(0, 111, 3, 0.65);
+        border: 1px solid rgba(0, 255, 7, 0.7);
+        background: rgba(57, 195, 61, 0.7);
         cursor: pointer;
         color: white;
         transition: 0.3s all;
@@ -59,8 +60,8 @@
     .delete-row:hover,
     .section .section-tops:nth-child(3):hover {
         color: white;
-        border: 1px solid rgba(139, 0, 0, 0.65);
-        background: rgba(139, 0, 0, 0.65);
+        border: 1px solid rgba(255, 0, 0, 0.7);
+        background: rgba(198, 57, 57, 0.7);
     }
     .sortable li:hover {
         background: rgba(0, 0, 0, 0.1);
@@ -79,7 +80,7 @@
         margin: auto;
         margin-bottom: 8px;
     }
-    input.section-tops {
+    textarea.section-tops {
         width: 85%;
     }
     /* MOBILE */
@@ -119,7 +120,7 @@
 }
 
 @media all and (max-width: 768px) {
-    input.section-tops {
+    textarea.section-tops {
         max-width: 75%;
     }
     .section {
@@ -128,7 +129,7 @@
 }
 
 @media all and (max-width: 430px) {
-    input.section-tops {
+    textarea.section-tops {
         max-width: 50vw;
     }
     .section,

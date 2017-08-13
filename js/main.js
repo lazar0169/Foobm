@@ -1,10 +1,14 @@
 // 1. kolaps sekcije
 
 var links = [{ name: "Section 1", list: { Google: "http://www.google.com", Yahoo: "http://www.yahoo.com" } }, { name: "Section 2", list: { Facebook: "http://www.facebook.com", Youtube: "http://www.youtube.com" } }];
-var compatibility = '';
+var compatibility = '', iosStyle = '';
 
 if (navigator.userAgent.indexOf('Edge') > -1 || navigator.userAgent.indexOf('Firefox') > -1) {
     compatibility = 'comp';
+}
+
+if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+    iosStyle = 'overflow-x: scroll;'
 }
 
 function parseUrl(url) {
@@ -25,8 +29,8 @@ function read() {
         }
         var linksList = sections[i].children[3].querySelectorAll('li');
         for (let i = 0; i < linksList.length; i++) {
-            var title = linksList[i].children[1].children[0].value;
-            var link = linksList[i].children[1].children[1].value;
+            var title = linksList[i].children[1].children[1].value;
+            var link = linksList[i].children[1].children[2].value;
             section.list[title] = link;
         }
         links.push(section);
@@ -41,8 +45,8 @@ function rowTemplate(title, url) {
                 </span> 
                 <span class="row" data-row="||false">
                     <a href="${url}" target="_blank"></a>
-                    <input type="text" class="row-title" value="${title}" onblur="read()" readonly="readonly">  
-                    <input type="text" class="row-link" value="${url}" onblur="row.changeUrl(this.parentElement)" readonly="readonly"> 
+                    <textarea type="text" class="row-title" readonly="readonly" cols="10" rows="1" style="${iosStyle}">${title}</textarea>  
+                    <textarea type="text" class="row-link" readonly="readonly" cols="10" rows="1" style="${iosStyle}">${url}</textarea> 
                 </span> 
                 <span class="edit-row" onclick="row.edit(this.parentElement)" title="Change bookmark"><i class="mdi mdi-link-variant" aria-hidden="true"></i></span> 
                 <span class="delete-row" onclick="row.remove(this.parentElement)" title="Remove bookmark"><i class="mdi mdi-minus" aria-hidden="true"></i></span> 
@@ -52,7 +56,7 @@ function rowTemplate(title, url) {
 function sectionTemplate(name, bookmarks) {
     return `
             <div class="section ${compatibility}">
-                <input type="text" class="section-tops" value="${name}">
+                <textarea type="text" class="section-tops" cols="10" rows="1" style="${iosStyle}">${name}</textarea>
                 <div class="section-tops" onclick="row.add(this.parentElement, 'blank', 'http://')" title="Add new bookmark"><i class="mdi mdi-plus" aria-hidden="true"></i></div>
                 <div class="section-tops" onclick="section.remove(this.parentElement)" title="Remove section"><i class="mdi mdi-close" aria-hidden="true"></i></div>
                 <ul class="sortable connectedSortable">
@@ -82,6 +86,7 @@ function initDrag() {
         connectWith: '.connectedSortable',
         placeholder: 'ui-state-highlight',
         cursor: 'move',
+        delay: 150,
         opacity: 0.5,
         update: function (e) {
             read();
@@ -125,7 +130,7 @@ var row = function () {
 
     function changeUrl(object) {
         object.children[0].href = parseUrl(object.children[2].value);
-        object.children[2].value = parseUrl(object.children[2].value)
+        object.children[2].value = parseUrl(object.children[2].value);
         read();
     }
 
@@ -145,8 +150,8 @@ var row = function () {
                 editBtn.children[0].className = 'mdi mdi-check';
                 removeBtn.children[0].className = 'mdi mdi-close';
                 removeBtn.title = 'Discard changes';
-                nameField.style.background = 'rgba(0, 84, 6, 0.19)';
-                urlField.style.background = 'rgba(0, 84, 6, 0.19)';
+                nameField.style.background = 'rgba(0, 255, 57, 0.26)';
+                urlField.style.background = 'rgba(0, 255, 57, 0.26)';
                 nameField.readOnly = false;
                 urlField.readOnly = false;
             } else {
@@ -160,8 +165,9 @@ var row = function () {
                 urlField.style.background = 'none';
                 nameField.blur();
                 urlField.blur();
-                nameField.readOnly = readonly;
-                urlField.readOnly = readonly;
+                nameField.readOnly = true;
+                urlField.readOnly = true;
+                changeUrl(row);
             }
         }
 
