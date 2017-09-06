@@ -1,15 +1,17 @@
 // 1. kolaps sekcije
 
 var links = [{ name: "Section 1", list: { Google: "http://www.google.com", Yahoo: "http://www.yahoo.com" } }, { name: "Section 2", list: { Facebook: "http://www.facebook.com", Youtube: "http://www.youtube.com" } }];
-var compatibility = '', iosStyle = '';
+var compatibility = '';
+var inputFieldsStyle = 'pointer-events: none;';
+var sectionTitleStyle = '';
 
 if (navigator.userAgent.indexOf('Edge') > -1 || navigator.userAgent.indexOf('Firefox') > -1) {
     compatibility = 'comp';
 }
 
-if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-    iosStyle = 'overflow-x: scroll;'
-}
+// if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+//     iosStyle = 'overflow-x: scroll; pointer-events: none;';
+// }
 
 function parseUrl(url) {
     if (url.indexOf('http://') !== -1 || url.indexOf('https://') !== -1) {
@@ -35,7 +37,7 @@ function read() {
         }
         links.push(section);
     }
-    console.log(links);
+    // console.log(links);
 }
 
 function rowTemplate(title, url) {
@@ -45,8 +47,8 @@ function rowTemplate(title, url) {
                 </span> 
                 <span class="row" data-row="||false">
                     <a href="${url}" target="_blank"></a>
-                    <input type="text" class="row-title" readonly="readonly" value="${title}" style="${iosStyle}"> 
-                    <input type="text" class="row-link" readonly="readonly" value="${url}" style="${iosStyle}"> 
+                    <input type="text" class="row-title" readonly="readonly" value="${title}" style="${inputFieldsStyle}"> 
+                    <input type="text" class="row-link" readonly="readonly" value="${url}" style="${inputFieldsStyle}"> 
                 </span> 
                 <span class="edit-row" onclick="row.edit(this.parentElement)" title="Change bookmark"><i class="mdi mdi-link-variant" aria-hidden="true"></i></span> 
                 <span class="delete-row" onclick="row.remove(this.parentElement)" title="Remove bookmark"><i class="mdi mdi-minus" aria-hidden="true"></i></span> 
@@ -56,9 +58,9 @@ function rowTemplate(title, url) {
 function sectionTemplate(name, bookmarks) {
     return `
             <div class="section ${compatibility}">
-                <input type="text" class="section-tops" value="${name}" style="${iosStyle}">
-                <div class="section-tops" onclick="row.add(this.parentElement, 'blank', 'http://')" title="Add new bookmark"><i class="mdi mdi-plus" aria-hidden="true"></i></div>
+                <input type="text" class="section-tops" value="${name}" style="${sectionTitleStyle}">
                 <div class="section-tops" onclick="section.remove(this.parentElement)" title="Remove section"><i class="mdi mdi-close" aria-hidden="true"></i></div>
+                <div class="section-tops" onclick="row.add(this.parentElement, 'blank', 'http://')" title="Add new bookmark"><i class="mdi mdi-plus" aria-hidden="true"></i></div>
                 <ul class="sortable connectedSortable">
                     ${bookmarks}
                 </ul>
@@ -146,6 +148,8 @@ var row = function () {
             if (state) {
                 row.dataset.row = `${nameField.value}|${urlField.value}|true`;
                 link.style.pointerEvents = 'none';
+                nameField.style.pointerEvents = 'all';
+                urlField.style.pointerEvents = 'all';
                 editBtn.className += ' done';
                 editBtn.children[0].className = 'mdi mdi-check';
                 removeBtn.children[0].className = 'mdi mdi-close';
@@ -157,6 +161,8 @@ var row = function () {
             } else {
                 row.dataset.row = '||false';
                 link.style.pointerEvents = 'all';
+                nameField.style.pointerEvents = 'none';
+                urlField.style.pointerEvents = 'none';
                 editBtn.className = 'edit-row';
                 editBtn.children[0].className = 'mdi mdi-link-variant';
                 removeBtn.children[0].className = 'mdi mdi-minus';
